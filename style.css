@@ -1,28 +1,14 @@
 :root {
-    --bg-color: #f0f4f8; 
-    --container-bg: #ffffff; 
-    --text-color: #333; 
-    --btn-bg: #008cba; 
-    --btn-hover-bg: #005f73; 
+    --bg-color: #EBF5FB; 
+    --container-bg: #FFFFFF; 
+    --text-color: #34495E; 
+    --btn-bg: #5DADE2; 
+    --btn-hover-bg: #2E86C1; 
     --btn-text: white; 
-    --correct-color: #4caf50; 
-    --wrong-color: #f44336; 
-    --shadow-color: rgba(0,0,0,0.15); 
-    --info-color: #555; 
-}
-
-
-body.dark {
-    --bg-color: #121212;
-    --container-bg: #1e1e1e;
-    --text-color: #ddd;
-    --btn-bg: #bb86fc;
-    --btn-hover-bg: #a370e0;
-    --btn-text: #121212;
-    --correct-color: #81c784;
-    --wrong-color: #e57373;
-    --shadow-color: rgba(0,0,0,0.3);
-    --info-color: #bbb;
+    --correct-color: #58D68D; 
+    --wrong-color: #EC7063; 
+    --shadow-color: rgba(0,0,0,0.1); 
+    --info-color: #7F8C8D; 
 }
 
 
@@ -41,41 +27,29 @@ body {
     justify-content: center; 
     align-items: flex-start; 
     padding: 20px; 
-    transition: background-color 0.3s ease, color 0.3s ease; 
-}
 
 
 .container {
     width: 100%;
     max-width: 600px;
     background-color: var(--container-bg); 
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 0 12px var(--shadow-color); 
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    border-radius: 12px; /
+    padding: 25px; 
+    box-shadow: 0 4px 15px var(--shadow-color); 
 }
 
 
 header {
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; 
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px; 
 }
 
 h1 {
     margin: 0;
-    font-size: 1.8em;
-}
-
-
-#toggle-theme {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: color 0.3s ease;
+    font-size: 2.2em; 
+    color: var(--btn-bg); 
 }
 
 
@@ -85,65 +59,77 @@ h1 {
 }
 
 #question-number {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 600;
-    margin-bottom: 10px;
-}
-
-#timer {
-    font-size: 1em;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     color: var(--info-color);
 }
 
-#question-text {
-    font-size: 1.4em;
+#timer {
+    font-size: 1.1em;
     margin-bottom: 25px;
+    color: var(--wrong-color);
     font-weight: 700;
-    line-height: 1.5;
+}
+
+#question-text {
+    font-size: 1.5em; /
+    margin-bottom: 30px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
 #choices {
     display: flex;
     flex-direction: column;
-    gap: 10px; 
-    margin-bottom: 20px;
+    gap: 12px; 
+    margin-bottom: 25px;
 }
 
 
 .choice-btn {
     width: 100%;
-    padding: 12px 15px;
-    font-size: 1em;
+    padding: 14px 20px; 
+    font-size: 1.1em; 
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; 
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease; 
+    text-align: left; 
 }
 
 .choice-btn:hover:not(:disabled) {
     background-color: var(--btn-hover-bg);
+    transform: translateY(-2px); 
+}
+
+.choice-btn:active:not(:disabled) {
+    transform: translateY(0); 
 }
 
 .choice-btn:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 0.5; 
 }
 
 
 #feedback-text {
-    font-weight: 600;
-    margin-top: 15px;
-    font-size: 1.1em;
+    font-weight: 700; 
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 #info-text {
-    font-size: 0.95em;
+    font-size: 1em;
     color: var(--info-color);
-    margin-top: 10px;
-    line-height: 1.4;
+    margin-top: 15px;
+    line-height: 1.5;
+    padding: 0 10px;
 }
 
 
@@ -160,46 +146,55 @@ h1 {
 
 #start-screen, #win-screen {
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0;
 }
 
 #start-screen .game-title {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 2.5em; 
+    margin-bottom: 15px;
+    color: var(--btn-hover-bg);
 }
 
 #start-screen .game-description {
-    font-size: 1.1em;
-    margin-bottom: 30px;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: var(--info-color);
 }
 
 .start-buttons button, #btn-play-again, #btn-back-to-start-from-win {
-    width: 80%;
-    max-width: 250px;
-    padding: 15px 20px;
-    font-size: 1.2em;
+    width: 85%; 
+    max-width: 300px;
+    padding: 16px 25px; 
+    font-size: 1.3em; 
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin-top: 15px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 20px; 
+    font-weight: 600;
 }
 
 .start-buttons button:hover, #btn-play-again:hover, #btn-back-to-start-from-win:hover {
     background-color: var(--btn-hover-bg);
+    transform: translateY(-3px);
+}
+
+.start-buttons button:active, #btn-play-again:active, #btn-back-to-start-from-win:active {
+    transform: translateY(0);
 }
 
 #win-screen h2 {
-    font-size: 2.5em;
+    font-size: 2.8em; 
     color: var(--correct-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #win-screen p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: var(--text-color);
 }
 
 

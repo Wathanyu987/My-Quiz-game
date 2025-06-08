@@ -148,7 +148,7 @@ function loadQuestion() {
     questionTextEl.textContent = currentQuestion.question;
     choicesEl.innerHTML = "";
 
-    const prefixes = ["ก. ", "ข. ", "ค. ", "ง. "]; 
+   
     currentQuestion.choices.forEach((choice, index) => {
         const btn = document.createElement("button");
         btn.classList.add("choice-btn");

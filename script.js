@@ -70,7 +70,6 @@ const MESSAGES = {
     questionNumber: (level, current, total) => `ระดับ: ${level} ข้อที่ ${current} / ${total}`
 };
 
-// Elements
 const startScreen = document.getElementById("start-screen");
 const gameContainer = document.getElementById("game-container");
 const winScreen = document.getElementById("win-screen");
@@ -85,13 +84,11 @@ const infoTextEl = document.getElementById("info-text");
 const timeLeftEl = document.getElementById("time-left");
 const toggleThemeBtn = document.getElementById("toggle-theme");
 
-
 let currentLevel = "easy";
 let currentQuestionIndex = 0;
 const timePerQuestion = 15;
 let timerInterval = null;
-let isGameActive = true; 
-
+let isGameActive = true;
 
 toggleThemeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
@@ -103,11 +100,11 @@ btnStartGame.addEventListener("click", () => {
 });
 
 btnPlayAgain.addEventListener("click", () => {
-    startGame(); 
+    startGame();
 });
 
 btnBackToStartFromWin.addEventListener("click", () => {
-    showScreen("start"); 
+    showScreen("start");
 });
 
 choicesEl.addEventListener("click", (event) => {
@@ -118,24 +115,15 @@ choicesEl.addEventListener("click", (event) => {
     }
 });
 
-
-
-/**
- 
- */
 function startGame() {
-    currentQuestionIndex = 0; 
-    currentLevel = "easy";   
-    isGameActive = true;      
-    showScreen("game");       
-    loadQuestion();           
-    startTimer();             
+    currentQuestionIndex = 0;
+    currentLevel = "easy";
+    isGameActive = true;
+    showScreen("game");
+    loadQuestion();
+    startTimer();
 }
 
-/**
- 
- * @param {string} screenName - The ID of the screen to show ("start", "game", "win").
- */
 function showScreen(screenName) {
     startScreen.classList.add("hidden");
     gameContainer.classList.add("hidden");
@@ -150,60 +138,49 @@ function showScreen(screenName) {
     }
 }
 
-/**
- 
- */
 function loadQuestion() {
     const currentQuestionsSet = questions[currentLevel];
-    const currentQuestion = currentQuestionsSet[currentQuestionIndex];
 
-    
     if (currentQuestionIndex >= currentQuestionsSet.length) {
         stopTimer();
         isGameActive = false;
-        showScreen("win"); 
+        showScreen("win");
         return;
     }
 
+    const currentQuestion = currentQuestionsSet[currentQuestionIndex];
     questionNumberEl.textContent = MESSAGES.questionNumber("ง่าย", currentQuestionIndex + 1, currentQuestionsSet.length);
     questionTextEl.textContent = currentQuestion.question;
-    choicesEl.innerHTML = ""; 
+    choicesEl.innerHTML = "";
 
     currentQuestion.choices.forEach((choice, index) => {
         const btn = document.createElement("button");
         btn.classList.add("choice-btn");
         btn.textContent = choice;
-        btn.disabled = false; 
+        btn.disabled = false;
         choicesEl.appendChild(btn);
     });
 
-   
     feedbackTextEl.textContent = "";
     infoTextEl.textContent = "";
     feedbackTextEl.classList.remove("correct", "wrong");
-    timeLeftEl.textContent = timePerQuestion; 
+    timeLeftEl.textContent = timePerQuestion;
 }
 
-/**
- 
- * @param {number} selectedIndex - The index of the selected choice.
- */
 function selectAnswer(selectedIndex) {
-    if (!isGameActive) return; 
-
-    stopTimer(); 
+    if (!isGameActive) return;
+    stopTimer();
 
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const buttons = choicesEl.querySelectorAll(".choice-btn");
 
-    
     buttons.forEach((btn, idx) => {
         btn.disabled = true;
         if (idx === currentQuestion.answer) {
-            btn.classList.add("correct"); 
+            btn.classList.add("correct");
         }
         if (idx === selectedIndex && idx !== currentQuestion.answer) {
-            btn.classList.add("wrong"); 
+            btn.classList.add("wrong");
         }
     });
 
@@ -212,30 +189,31 @@ function selectAnswer(selectedIndex) {
         infoTextEl.textContent = currentQuestion.info;
         feedbackTextEl.classList.add("correct");
 
-        currentQuestionIndex++; 
+        currentQuestionIndex++;
         setTimeout(() => {
-            if (isGameActive) { 
+            if (isGameActive) {
                  loadQuestion();
                  startTimer();
             }
-        }, 3000); 
+        }, 3000);
     } else {
         feedbackTextEl.textContent = MESSAGES.wrongFeedback + " คำตอบที่ถูกต้องคือ: " + currentQuestion.choices[currentQuestion.answer];
         infoTextEl.textContent = currentQuestion.info;
         feedbackTextEl.classList.add("wrong");
-        isGameActive = false; 
+        isGameActive = false;
+        
+        // Pop-up when wrong answer
         setTimeout(() => {
-            showScreen("start"); 
-            
-            currentQuestionIndex = 0;
-            currentLevel = "easy";
-        }, 3000); 
+            if (confirm("คุณแพ้แล้ว! เริ่มเกมใหม่หรือไม่?")) {
+                showScreen("start");
+                currentQuestionIndex = 0;
+                currentLevel = "easy";
+            }
+            // If user clicks cancel, game stays on current screen showing feedback
+        }, 3000);
     }
 }
 
-/**
- 
- */
 function startTimer() {
     let timeLeft = timePerQuestion;
     timeLeftEl.textContent = timeLeft;
@@ -247,35 +225,32 @@ function startTimer() {
             feedbackTextEl.textContent = MESSAGES.timeUpFeedback + " คำตอบที่ถูกต้องคือ: " + questions[currentLevel][currentQuestionIndex].choices[questions[currentLevel][currentQuestionIndex].answer];
             infoTextEl.textContent = questions[currentLevel][currentQuestionIndex].info;
             feedbackTextEl.classList.add("wrong");
-            isGameActive = false; 
-            disableChoices(); 
+            isGameActive = false;
+            disableChoices();
+
+            // Pop-up when time is up
             setTimeout(() => {
-                showScreen("start"); 
+                if (confirm("คุณแพ้แล้ว! เริ่มเกมใหม่หรือไม่?")) {
+                    showScreen("start");
+                    currentQuestionIndex = 0;
+                    currentLevel = "easy";
+                }
                 
-                currentQuestionIndex = 0;
-                currentLevel = "easy";
-            }, 3000); 
+            }, 3000);
         }
-    }, 1000); 
+    }, 1000);
 }
 
-/**
- 
- */
 function stopTimer() {
     clearInterval(timerInterval);
 }
 
-/**
- * Disables all choice buttons.
- */
 function disableChoices() {
     const buttons = choicesEl.querySelectorAll(".choice-btn");
     buttons.forEach(btn => btn.disabled = true);
 }
 
-
 window.onload = () => {
-    showScreen("start"); 
-    toggleThemeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙"; // Set initial theme icon
+    showScreen("start");
+    toggleThemeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
 };

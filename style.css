@@ -1,15 +1,29 @@
-/* ธีมเรียบง่าย (Default) */
+/* ธีมกลางวัน (Default) */
 :root {
-    --bg-color: #e0f2f7; /* พื้นหลังโดยรวมของ body สีฟ้าอ่อน */
-    --container-bg: #ffffff; /* พื้นหลังของกล่องเกม สีขาว */
+    --bg-color: #f0f4f8; /* พื้นหลังโดยรวมของ body */
+    --container-bg: #ffffff; /* พื้นหลังของกล่องเกม */
     --text-color: #333; /* สีตัวอักษรหลัก */
-    --btn-bg: #4a90e2; /* สีพื้นหลังปุ่มทั่วไป สีฟ้า */
-    --btn-hover-bg: #357ABD; /* สีพื้นหลังปุ่มเมื่อเมาส์ชี้ */
+    --btn-bg: #008cba; /* สีพื้นหลังปุ่มทั่วไป */
+    --btn-hover-bg: #005f73; /* สีพื้นหลังปุ่มเมื่อเมาส์ชี้ */
     --btn-text: white; /* สีตัวอักษรบนปุ่ม */
-    --correct-color: #5cb85c; /* สีปุ่ม/ข้อความเมื่อตอบถูก สีเขียว */
-    --wrong-color: #d9534f; /* สีปุ่ม/ข้อความเมื่อตอบผิด สีแดง */
-    --shadow-color: rgba(0,0,0,0.1); /* สีเงาของกล่อง container */
-    --info-color: #666; /* สีข้อความ info */
+    --correct-color: #4caf50; /* สีปุ่ม/ข้อความเมื่อตอบถูก */
+    --wrong-color: #f44336; /* สีปุ่ม/ข้อความเมื่อตอบผิด */
+    --shadow-color: rgba(0,0,0,0.15); /* สีเงาของกล่อง container */
+    --info-color: #555; /* สีข้อความ info */
+}
+
+/* ธีมกลางคืน */
+body.dark {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #ddd;
+    --btn-bg: #bb86fc;
+    --btn-hover-bg: #a370e0;
+    --btn-text: #121212;
+    --correct-color: #81c784;
+    --wrong-color: #e57373;
+    --shadow-color: rgba(0,0,0,0.3);
+    --info-color: #bbb;
 }
 
 /* การตั้งค่าพื้นฐานสำหรับทุก Element */
@@ -28,6 +42,7 @@ body {
     justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
     align-items: flex-start; /* จัดให้อยู่ด้านบนแนวตั้ง */
     padding: 20px; /* ระยะห่างรอบๆ ตัวกล่องเกม */
+    transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition ให้สวยงามเมื่อเปลี่ยนธีม */
 }
 
 /* สไตล์สำหรับ Container (กล่องหลักของเกม) */
@@ -37,20 +52,31 @@ body {
     background-color: var(--container-bg); /* พื้นหลังของกล่อง */
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 0 8px var(--shadow-color); /* เงาของกล่อง */
+    box-shadow: 0 0 12px var(--shadow-color); /* เงาของกล่อง */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition */
 }
 
 /* สไตล์สำหรับ Header (ส่วนหัวของเกม) */
 header {
     display: flex;
-    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: space-between; /* จัดให้อยู่คนละฝั่ง */
     align-items: center;
     margin-bottom: 20px;
 }
 
 h1 {
     margin: 0;
-    font-size: 2em; /* เพิ่มขนาดหัวข้อเล็กน้อย */
+    font-size: 1.8em;
+}
+
+/* ปุ่มสลับธีม */
+#toggle-theme {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
 }
 
 /* สไตล์สำหรับส่วนของเกมหลัก */

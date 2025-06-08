@@ -1,58 +1,53 @@
 :root {
-    --bg-color: #EBF5FB; 
-    --container-bg: #FFFFFF; 
-    --text-color: #34495E; 
-    --btn-bg: #5DADE2; 
-    --btn-hover-bg: #2E86C1; 
-    --btn-text: white; 
-    --correct-color: #58D68D; 
-    --wrong-color: #EC7063; 
-    --shadow-color: rgba(0,0,0,0.1); 
-    --info-color: #7F8C8D; 
+    --bg-color: #EBF5FB;
+    --container-bg: #FFFFFF;
+    --text-color: #34495E;
+    --btn-bg: #5DADE2;
+    --btn-hover-bg: #2E86C1;
+    --btn-text: white;
+    --correct-color: #58D68D;
+    --wrong-color: #EC7063;
+    --shadow-color: rgba(0,0,0,0.1);
+    --info-color: #7F8C8D;
 }
-
 
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-
 
 body {
     margin: 0;
-    font-family: "Sarabun", sans-serif; 
-    background-color: var(--bg-color); 
-    color: var(--text-color); 
-    min-height: 100vh; 
+    font-family: "Sarabun", sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
     display: flex;
-    justify-content: center; 
-    align-items: flex-start; 
+    justify-content: center;
+    align-items: flex-start;
     padding: 20px;
 }
-
 
 .container {
     width: 100%;
     max-width: 600px;
-    background-color: var(--container-bg); 
-    border-radius: 12px; 
-    padding: 25px; 
-    box-shadow: 0 4px 15px var(--shadow-color); 
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
-
 
 header {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
 }
 
 h1 {
     margin: 0;
-    font-size: 2.2em; 
-    color: var(--btn-bg); 
+    font-size: 2.2em;
+    color: var(--btn-bg);
 }
-
 
 #game-area {
     text-align: center;
@@ -69,12 +64,12 @@ h1 {
 #timer {
     font-size: 1.1em;
     margin-bottom: 25px;
-    color: var(--wrong-color); 
+    color: var(--wrong-color);
     font-weight: 700;
 }
 
 #question-text {
-    font-size: 1.5em; 
+    font-size: 1.5em;
     margin-bottom: 30px;
     font-weight: 700;
     line-height: 1.6;
@@ -88,37 +83,35 @@ h1 {
     margin-bottom: 25px;
 }
 
-
 .choice-btn {
     width: 100%;
-    padding: 14px 20px; 
-    font-size: 1.1em; 
+    padding: 14px 20px;
+    font-size: 1.1em;
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border: none;
-    border-radius: 8px; 
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease; /
-    text-align: left; 
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: left;
 }
 
 .choice-btn:hover:not(:disabled) {
     background-color: var(--btn-hover-bg);
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 }
 
 .choice-btn:active:not(:disabled) {
-    transform: translateY(0); 
+    transform: translateY(0);
 }
 
 .choice-btn:disabled {
     cursor: not-allowed;
-    opacity: 0.5; 
+    opacity: 0.5;
 }
 
-
 #feedback-text {
-    font-weight: 700; 
+    font-weight: 700;
     margin-top: 20px;
     font-size: 1.2em;
     padding: 8px;
@@ -133,7 +126,6 @@ h1 {
     padding: 0 10px;
 }
 
-
 .correct {
     background-color: var(--correct-color) !important;
     color: white;
@@ -144,14 +136,13 @@ h1 {
     color: white;
 }
 
-
 #start-screen, #win-screen {
     text-align: center;
     padding: 25px 0;
 }
 
 #start-screen .game-title {
-    font-size: 2.5em; 
+    font-size: 2.5em;
     margin-bottom: 15px;
     color: var(--btn-hover-bg);
 }
@@ -163,17 +154,17 @@ h1 {
 }
 
 .start-buttons button, #btn-play-again, #btn-back-to-start-from-win {
-    width: 85%; 
+    width: 85%;
     max-width: 300px;
-    padding: 16px 25px; 
-    font-size: 1.3em; 
+    padding: 16px 25px;
+    font-size: 1.3em;
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border: none;
-    border-radius: 10px; 
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    margin-top: 20px; 
+    margin-top: 20px;
     font-weight: 600;
 }
 
@@ -185,7 +176,6 @@ h1 {
 .start-buttons button:active, #btn-play-again:active, #btn-back-to-start-from-win:active {
     transform: translateY(0);
 }
-
 
 .hidden {
     display: none !important;

@@ -26,14 +26,15 @@ body {
     display: flex;
     justify-content: center; 
     align-items: flex-start; 
-    padding: 20px; 
+    padding: 20px;
+}
 
 
 .container {
     width: 100%;
     max-width: 600px;
     background-color: var(--container-bg); 
-    border-radius: 12px; /
+    border-radius: 12px; 
     padding: 25px; 
     box-shadow: 0 4px 15px var(--shadow-color); 
 }
@@ -68,12 +69,12 @@ h1 {
 #timer {
     font-size: 1.1em;
     margin-bottom: 25px;
-    color: var(--wrong-color);
+    color: var(--wrong-color); 
     font-weight: 700;
 }
 
 #question-text {
-    font-size: 1.5em; /
+    font-size: 1.5em; 
     margin-bottom: 30px;
     font-weight: 700;
     line-height: 1.6;
@@ -83,7 +84,7 @@ h1 {
 #choices {
     display: flex;
     flex-direction: column;
-    gap: 12px; 
+    gap: 12px;
     margin-bottom: 25px;
 }
 
@@ -97,7 +98,7 @@ h1 {
     border: none;
     border-radius: 8px; 
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease; 
+    transition: background-color 0.2s ease, transform 0.1s ease; /
     text-align: left; 
 }
 
@@ -169,7 +170,7 @@ h1 {
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border: none;
-    border-radius: 10px;
+    border-radius: 10px; 
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
     margin-top: 20px; 
@@ -183,18 +184,6 @@ h1 {
 
 .start-buttons button:active, #btn-play-again:active, #btn-back-to-start-from-win:active {
     transform: translateY(0);
-}
-
-#win-screen h2 {
-    font-size: 2.8em; 
-    color: var(--correct-color);
-    margin-bottom: 20px;
-}
-
-#win-screen p {
-    font-size: 1.3em;
-    margin-bottom: 40px;
-    color: var(--text-color);
 }
 
 

@@ -1,18 +1,17 @@
-/* ธีมกลางวัน (Default) */
 :root {
-    --bg-color: #f0f4f8; /* พื้นหลังโดยรวมของ body */
-    --container-bg: #ffffff; /* พื้นหลังของกล่องเกม */
-    --text-color: #333; /* สีตัวอักษรหลัก */
-    --btn-bg: #008cba; /* สีพื้นหลังปุ่มทั่วไป */
-    --btn-hover-bg: #005f73; /* สีพื้นหลังปุ่มเมื่อเมาส์ชี้ */
-    --btn-text: white; /* สีตัวอักษรบนปุ่ม */
-    --correct-color: #4caf50; /* สีปุ่ม/ข้อความเมื่อตอบถูก */
-    --wrong-color: #f44336; /* สีปุ่ม/ข้อความเมื่อตอบผิด */
-    --shadow-color: rgba(0,0,0,0.15); /* สีเงาของกล่อง container */
-    --info-color: #555; /* สีข้อความ info */
+    --bg-color: #f0f4f8; 
+    --container-bg: #ffffff; 
+    --text-color: #333; 
+    --btn-bg: #008cba; 
+    --btn-hover-bg: #005f73; 
+    --btn-text: white; 
+    --correct-color: #4caf50; 
+    --wrong-color: #f44336; 
+    --shadow-color: rgba(0,0,0,0.15); 
+    --info-color: #555; 
 }
 
-/* ธีมกลางคืน */
+
 body.dark {
     --bg-color: #121212;
     --container-bg: #1e1e1e;
@@ -26,40 +25,40 @@ body.dark {
     --info-color: #bbb;
 }
 
-/* การตั้งค่าพื้นฐานสำหรับทุก Element */
+
 * {
-    box-sizing: border-box; /* ทำให้การคำนวณ padding และ border ไม่รวมในความกว้าง/สูง */
+    box-sizing: border-box; 
 }
 
-/* สไตล์สำหรับ Body (พื้นหลังทั้งหน้าจอ) */
+
 body {
     margin: 0;
-    font-family: "Sarabun", sans-serif; /* ใช้ฟอนต์ Sarabun */
-    background-color: var(--bg-color); /* สีพื้นหลังโดยรวม */
-    color: var(--text-color); /* สีตัวอักษรหลัก */
-    min-height: 100vh; /* ความสูงเต็มหน้าจอ */
+    font-family: "Sarabun", sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    min-height: 100vh; 
     display: flex;
-    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
-    align-items: flex-start; /* จัดให้อยู่ด้านบนแนวตั้ง */
-    padding: 20px; /* ระยะห่างรอบๆ ตัวกล่องเกม */
-    transition: background-color 0.3s ease, color 0.3s ease; /* เพิ่ม transition ให้สวยงามเมื่อเปลี่ยนธีม */
+    justify-content: center; 
+    align-items: flex-start; 
+    padding: 20px; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
-/* สไตล์สำหรับ Container (กล่องหลักของเกม) */
+
 .container {
     width: 100%;
     max-width: 600px;
-    background-color: var(--container-bg); /* พื้นหลังของกล่อง */
+    background-color: var(--container-bg); 
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 0 12px var(--shadow-color); /* เงาของกล่อง */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* เพิ่ม transition */
+    box-shadow: 0 0 12px var(--shadow-color); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* สไตล์สำหรับ Header (ส่วนหัวของเกม) */
+
 header {
     display: flex;
-    justify-content: space-between; /* จัดให้อยู่คนละฝั่ง */
+    justify-content: space-between; 
     align-items: center;
     margin-bottom: 20px;
 }
@@ -69,7 +68,7 @@ h1 {
     font-size: 1.8em;
 }
 
-/* ปุ่มสลับธีม */
+
 #toggle-theme {
     background: none;
     border: none;
@@ -79,7 +78,7 @@ h1 {
     transition: color 0.3s ease;
 }
 
-/* สไตล์สำหรับส่วนของเกมหลัก */
+
 #game-area {
     text-align: center;
     margin-top: 20px;
@@ -107,11 +106,11 @@ h1 {
 #choices {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* ระยะห่างระหว่างปุ่มตัวเลือก */
+    gap: 10px; 
     margin-bottom: 20px;
 }
 
-/* สไตล์สำหรับปุ่มตัวเลือก */
+
 .choice-btn {
     width: 100%;
     padding: 12px 15px;
@@ -133,7 +132,7 @@ h1 {
     opacity: 0.6;
 }
 
-/* สไตล์สำหรับข้อความ Feedback */
+
 #feedback-text {
     font-weight: 600;
     margin-top: 15px;
@@ -147,7 +146,7 @@ h1 {
     line-height: 1.4;
 }
 
-/* Class สำหรับสีเมื่อตอบถูก/ผิด */
+
 .correct {
     background-color: var(--correct-color) !important;
     color: white;
@@ -158,7 +157,7 @@ h1 {
     color: white;
 }
 
-/* สไตล์สำหรับหน้าเริ่มต้น, แพ้, ชนะ */
+
 #start-screen, #win-screen {
     text-align: center;
     padding: 20px 0;
@@ -203,7 +202,7 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* Class สำหรับการซ่อน Element */
+
 .hidden {
     display: none !important;
 }

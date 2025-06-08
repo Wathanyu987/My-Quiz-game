@@ -1,0 +1,183 @@
+/* ธีมเรียบง่าย (Default) */
+:root {
+    --bg-color: #e0f2f7; /* พื้นหลังโดยรวมของ body สีฟ้าอ่อน */
+    --container-bg: #ffffff; /* พื้นหลังของกล่องเกม สีขาว */
+    --text-color: #333; /* สีตัวอักษรหลัก */
+    --btn-bg: #4a90e2; /* สีพื้นหลังปุ่มทั่วไป สีฟ้า */
+    --btn-hover-bg: #357ABD; /* สีพื้นหลังปุ่มเมื่อเมาส์ชี้ */
+    --btn-text: white; /* สีตัวอักษรบนปุ่ม */
+    --correct-color: #5cb85c; /* สีปุ่ม/ข้อความเมื่อตอบถูก สีเขียว */
+    --wrong-color: #d9534f; /* สีปุ่ม/ข้อความเมื่อตอบผิด สีแดง */
+    --shadow-color: rgba(0,0,0,0.1); /* สีเงาของกล่อง container */
+    --info-color: #666; /* สีข้อความ info */
+}
+
+/* การตั้งค่าพื้นฐานสำหรับทุก Element */
+* {
+    box-sizing: border-box; /* ทำให้การคำนวณ padding และ border ไม่รวมในความกว้าง/สูง */
+}
+
+/* สไตล์สำหรับ Body (พื้นหลังทั้งหน้าจอ) */
+body {
+    margin: 0;
+    font-family: "Sarabun", sans-serif; /* ใช้ฟอนต์ Sarabun */
+    background-color: var(--bg-color); /* สีพื้นหลังโดยรวม */
+    color: var(--text-color); /* สีตัวอักษรหลัก */
+    min-height: 100vh; /* ความสูงเต็มหน้าจอ */
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    align-items: flex-start; /* จัดให้อยู่ด้านบนแนวตั้ง */
+    padding: 20px; /* ระยะห่างรอบๆ ตัวกล่องเกม */
+}
+
+/* สไตล์สำหรับ Container (กล่องหลักของเกม) */
+.container {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--container-bg); /* พื้นหลังของกล่อง */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 8px var(--shadow-color); /* เงาของกล่อง */
+}
+
+/* สไตล์สำหรับ Header (ส่วนหัวของเกม) */
+header {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em; /* เพิ่มขนาดหัวข้อเล็กน้อย */
+}
+
+/* สไตล์สำหรับส่วนของเกมหลัก */
+#game-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#question-number {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#timer {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: var(--info-color);
+}
+
+#question-text {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+#choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* ระยะห่างระหว่างปุ่มตัวเลือก */
+    margin-bottom: 20px;
+}
+
+/* สไตล์สำหรับปุ่มตัวเลือก */
+.choice-btn {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1em;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.choice-btn:hover:not(:disabled) {
+    background-color: var(--btn-hover-bg);
+}
+
+.choice-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* สไตล์สำหรับข้อความ Feedback */
+#feedback-text {
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+#info-text {
+    font-size: 0.95em;
+    color: var(--info-color);
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+/* Class สำหรับสีเมื่อตอบถูก/ผิด */
+.correct {
+    background-color: var(--correct-color) !important;
+    color: white;
+}
+
+.wrong {
+    background-color: var(--wrong-color) !important;
+    color: white;
+}
+
+/* สไตล์สำหรับหน้าเริ่มต้น, แพ้, ชนะ */
+#start-screen, #win-screen {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#start-screen .game-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#start-screen .game-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.start-buttons button, #btn-play-again, #btn-back-to-start-from-win {
+    width: 80%;
+    max-width: 250px;
+    padding: 15px 20px;
+    font-size: 1.2em;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+}
+
+.start-buttons button:hover, #btn-play-again:hover, #btn-back-to-start-from-win:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+#win-screen h2 {
+    font-size: 2.5em;
+    color: var(--correct-color);
+    margin-bottom: 15px;
+}
+
+#win-screen p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Class สำหรับการซ่อน Element */
+.hidden {
+    display: none !important;
+}

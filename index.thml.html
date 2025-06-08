@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>เกมตอบคำถามคอมพิวเตอร์</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>เกมตอบคำถามคอมพิวเตอร์</h1>
+            </header>
+
+        <main id="start-screen">
+            <h2 class="game-title">เกมตอบคำถามคอมพิวเตอร์</h2>
+            <p class="game-description">ทดสอบความรู้ด้านคอมพิวเตอร์ของคุณ!</p>
+            <div class="start-buttons">
+                <button id="btn-start-game">เริ่มเกม</button>
+            </div>
+        </main>
+
+        <main id="game-container" class="hidden">
+            <div id="game-area">
+                <div id="question-number"></div>
+                <div id="timer">เวลา: <span id="time-left">15</span> วินาที</div>
+                <div id="question-text"></div>
+                <div id="choices">
+                    </div>
+                <div id="feedback">
+                    <p id="feedback-text"></p>
+                    <p id="info-text"></p>
+                </div>
+            </div>
+        </main>
+
+        <main id="win-screen" class="hidden">
+            <h2>คุณชนะแล้ว!</h2>
+            <p>ยินดีด้วย นายทำได้!</p>
+            <button id="btn-play-again">เล่นอีกครั้ง</button>
+            <button id="btn-back-to-start-from-win">กลับสู่หน้าหลัก</button>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

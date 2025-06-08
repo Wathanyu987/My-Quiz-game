@@ -1,29 +1,14 @@
-/* ธีมกลางวัน (Default) */
 :root {
-    --bg-color: #f0f4f8;
+    --bg-color: #e0f2f7; 
     --container-bg: #ffffff; 
     --text-color: #333; 
-    --btn-bg: #008cba; 
-    --btn-hover-bg: #005f73; 
+    --btn-bg: #4a90e2; 
+    --btn-hover-bg: #357ABD; 
     --btn-text: white; 
-    --correct-color: #4caf50; 
-    --wrong-color: #f44336; 
-    --shadow-color: rgba(0,0,0,0.15); 
-    --info-color: #555; 
-}
-
-/* ธีมกลางคืน */
-body.dark {
-    --bg-color: #121212;
-    --container-bg: #1e1e1e;
-    --text-color: #ddd;
-    --btn-bg: #bb86fc;
-    --btn-hover-bg: #a370e0;
-    --btn-text: #121212;
-    --correct-color: #81c784;
-    --wrong-color: #e57373;
-    --shadow-color: rgba(0,0,0,0.3);
-    --info-color: #bbb;
+    --correct-color: #5cb85c; 
+    --wrong-color: #d9534f; 
+    --shadow-color: rgba(0,0,0,0.1); 
+    --info-color: #666; 
 }
 
 
@@ -42,7 +27,6 @@ body {
     justify-content: center; 
     align-items: flex-start; 
     padding: 20px; 
-    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 
@@ -52,31 +36,20 @@ body {
     background-color: var(--container-bg); 
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 0 12px var(--shadow-color);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 0 8px var(--shadow-color); 
 }
 
 
 header {
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; 
     align-items: center;
     margin-bottom: 20px;
 }
 
 h1 {
     margin: 0;
-    font-size: 1.8em;
-}
-
-
-#toggle-theme {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: color 0.3s ease;
+    font-size: 2em; 
 }
 
 

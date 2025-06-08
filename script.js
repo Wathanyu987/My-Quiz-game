@@ -148,11 +148,11 @@ function loadQuestion() {
     questionTextEl.textContent = currentQuestion.question;
     choicesEl.innerHTML = "";
 
-    const prefixes = ["ก. ", "ข. ", "ค. ", "ง. "]; // เพิ่มคำนำหน้า
+    const prefixes = ["ก. ", "ข. ", "ค. ", "ง. "]; 
     currentQuestion.choices.forEach((choice, index) => {
         const btn = document.createElement("button");
         btn.classList.add("choice-btn");
-        btn.textContent = prefixes[index] + choice; // เพิ่มคำนำหน้า ก. ข. ค. ง.
+        btn.textContent = prefixes[index] + choice; 
         btn.disabled = false;
         choicesEl.appendChild(btn);
     });
